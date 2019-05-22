@@ -103,11 +103,13 @@ let loaded_bexec = 1
 
 "
 " Define some mappings to BExec
-"
-nmap <silent> <unique> <Leader>bx :call bexec#Normal()<CR>
-vmap <silent> <unique> <Leader>bx :call bexec#Visual()<CR>
-nmap <silent> <unique> <Leader>bc :call bexec#Live()<CR>
-nmap <silent> <unique> <Leader>bl :call bexec#CloseOut()<CR>
+
+if !exists("g:bexec_no_mappings") || ! g:bexec_no_mappings
+    nmap <silent> <unique> <Leader>bx :call bexec#Normal()<CR>
+    vmap <silent> <unique> <Leader>bx :call bexec#Visual()<CR>
+    nmap <silent> <unique> <Leader>bc :call bexec#Live()<CR>
+    nmap <silent> <unique> <Leader>bl :call bexec#CloseOut()<CR>
+endif
 
 "
 " Make the BExec call known to Vim
